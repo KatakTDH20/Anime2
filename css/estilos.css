@@ -1,0 +1,167 @@
+section {
+    background-color: #000000;  /* Celeste */
+    color: white;               /* Texto blanco sobre el fondo celeste */
+    padding: 20px;              /* Espaciado alrededor de los contenidos */
+}
+
+.container {
+    background-color: #00bcd4;  /* Negro o Azabeche */
+    border-radius: 10px;        /* Bordes redondeados para suavizar el contorno */
+    padding: 20px;              /* Espaciado interno */
+}
+
+span{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+img{
+    height: 300px !important;
+}
+
+header, footer {
+    display: flex;            /* Utilizamos Flexbox para la disposición en una fila */
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;      /* Centra el contenido verticalmente */
+    text-align: center;       /* Alineación de texto */
+    width: 100%;              /* Aseguramos que ocupen todo el ancho disponible */
+}
+
+footer {
+    background-color: #121212;  /* Fondo oscuro */
+    color: white;               /* Texto blanco */
+    text-align: center;
+    padding: 10px;
+}
+
+header span, footer span {
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+h1 {
+    font-size: 2rem; /* Tamaño del texto del header */
+}
+
+h5 {
+    color: #666666;             /* Celeste */
+}
+h4 {
+    color: #fff;             /* Celeste */
+}
+
+footer span {
+    font-size: 1rem; /* Tamaño del texto del footer */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Fuente limpia y moderna */
+}
+
+.color-circle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+  
+.card-price {
+    color: green;
+    font-weight: bold;
+}
+  
+.card-category {
+    font-style: italic;
+    color: #777;
+}
+  
+.card-quantity {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.card {
+    max-width: 300px; /* Limita el ancho máximo de la tarjeta */
+    margin: auto; /* Centra las tarjetas en su contenedor */
+    background-color: #666666; /* Celeste */
+    color: #00bcd4;              /* Texto blanco */
+    border: none;              /* Sin borde para que se vea más limpio */
+  }
+  
+  
+  .card-body {
+    flex-grow: 1; /* Permite que el cuerpo ocupe el espacio disponible */
+    background-color: #666666;  /* Gris */
+    color: #00bcd4;             /* Texto celeste */
+  }
+  
+  .card-footer {
+    margin-top: auto; /* Mantiene el footer en la parte inferior */
+  }
+
+  .card-title {
+    white-space: nowrap; /* Evita que el texto se desborde */
+    overflow: hidden; /* Oculta el contenido adicional */
+    text-overflow: ellipsis; /* Añade puntos suspensivos */
+  }
+  
+  .card-text {
+    max-height: 3em; /* Limita el alto del texto */
+    overflow: hidden; /* Oculta contenido adicional */
+    text-overflow: ellipsis; /* Añade puntos suspensivos */
+  }
+  
+  .card-img-top {
+    width: 100%; /* Se ajusta al ancho de la tarjeta */
+    max-height: 250px; /* Restringe la altura máxima */
+    object-fit: cover; /* Evita distorsiones manteniendo la proporción */
+    object-position: center; /* Centra el contenido de la imagen */
+  }
+
+  .card img {
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+
+  input[type="text"], .list-group-item {
+    background-color: #666666;  /* Gris */
+    color: #00bcd4;             /* Celeste */
+    border: none;               /* Sin borde */
+    border-radius: 5px;         /* Bordes redondeados */
+    padding: 10px;
+}
+ 
+input[type="text"]:focus, .list-group-item:focus {
+    outline: none;              /* Elimina el borde al enfocar */
+    box-shadow: 0 0 5px #00bcd4;/* Sombra celeste al enfocar */
+}
+
+/* Botón 'Ver más' */
+button.btn-primary {
+    background-color: #00bcd4;  /* Celeste */
+    color: white;               /* Texto blanco */
+    border: none;               /* Sin borde */
+    border-radius: 5px;         /* Bordes redondeados */
+    padding: 8px 15px;          /* Espaciado interno */
+}
+
+button.btn-primary:hover {
+    background-color: #008c9e;  /* Cambio de color al pasar el ratón */
+}
+
+/* Mejoras en la presentación de las listas de categorías */
+.list-group-item {
+    background-color: #666666;  /* Gris */
+    color: #00bcd4;             /* Celeste */
+    border: none;               /* Sin borde */
+}
+
+.list-group-item:hover {
+    background-color: #00bcd4;  /* Celeste al pasar el ratón */
+    color: white;               /* Texto blanco */
+}

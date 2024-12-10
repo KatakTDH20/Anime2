@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="bg-dark text-center text-white py-4 d-flex justify-content-between align-items-center px-3">
+        <span class="h1">AnimeHub</span>
+        <a href="index.html" class="btn btn-light">Volver al Catálogo</a>
+    </header>
+
+    <section class="container my-4" id="carrito">
+        <h2>Tu Carrito</h2>
+        <div v-if="carrito.length === 0" class="alert alert-info text-center">
+            Tu carrito está vacío. <a href="index.html">Regresa al catálogo</a>.
+        </div>
+        <div v-else>
+            <!-- Tabla de productos -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Formato</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Importe</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(producto, index) in carrito" :key="index">
+                        <td><img :src="producto.image_url" alt="Imagen del producto" style="width: 100px;"></td>
+                        <td>{{ producto.title }}</td>
+                        <td>{{ producto.formato }}</td>                        
+                        <td>
+                            <input type="number" v-model.number="producto.cantidad" min="1" max="10" class="form-control" @change="actualizarCarrito">
+                        </td>
+                        <td>${{ producto.precioUnitario ? producto.precioUnitario.toFixed(2) : '0.00' }}</td>
+                        <td>${{ producto.cantidad && producto.precioUnitario ? (producto.cantidad * producto.precioUnitario).toFixed(2) : '0.00' }}</td>
+
+                        <td>
+                            <button class="btn btn-danger btn-sm" @click="eliminarProducto(index)">X</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Resumen de la compra -->
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Subtotal:</th>
+                        <td>${{ subtotal.toFixed(2) }}</td>
+                    </tr>
+                    <tr>
+                        <th>IVA (16%):</th>
+                        <td>${{ iva.toFixed(2) }}</td>
+                    </tr>
+                    <tr>
+                        <th>Total:</th>
+                        <td>${{ total.toFixed(2) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-center text-white py-3">
+        <span>AnimeHub - 2024</span>
+    </footer>
+
+    <script src="js/vue3.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/funcion.js"></script>
+</body>
+</html>

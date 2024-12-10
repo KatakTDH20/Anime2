@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Anime</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header class="bg-dark text-center text-white py-4 d-flex justify-content-between align-items-center px-3">
+        <span class="h1">AnimeHub</span>
+        <!-- Icono del carrito -->
+        <a href="carrito.html" class="btn btn-light">
+            <i class="fas fa-shopping-cart"></i> Carrito
+        </a>
+    </header>
+    
+
+    <section class="container my-4" id="detalleAnime">
+        <div v-if="anime">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Catálogo</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ anime.title }}</li>
+                </ol>
+            </nav>
+            <div class="row">
+                <div class="col-md-4">
+                    <img :src="anime.image_url" class="img-fluid" alt="Imagen del anime">
+                </div>
+                <div class="col-md-8">
+                    <h2>{{ anime.title }}</h2>
+                    <p><strong>Sinopsis:</strong> {{ anime.synopsis }}</p>
+                    <p><strong>Episodios:</strong> {{ anime.episodes }}</p>
+                    <p><strong>Puntuación:</strong> {{ anime.score }}</p>
+                    <p><strong>Géneros:</strong> {{ anime.genres }}</p>
+
+                    <!-- Controles de cantidad -->
+                    <h4>Cantidad:</h4>
+                    <div class="d-flex align-items-center mt-3">
+                        <button class="btn btn-secondary" :disabled="cantidad <= 1" @click="decrementarCantidad">-</button>
+                        <input type="text" class="form-control mx-2" :value="cantidad" readonly />
+                        <button class="btn btn-secondary" :disabled="cantidad >= 6" @click="incrementarCantidad">+</button>
+                    </div>
+
+                    <!-- Selector de formato --> 
+                     <h4 class="mt-4">Formato:</h4> 
+                     <div class="d-flex align-items-center mt-3"> 
+                        <select class="form-select" v-model="formatoSeleccionado"> 
+                            <option value="DVD">DVD</option> 
+                            <option value="Blu-ray">Blu-ray</option> 
+                        </select> 
+                    </div>
+
+                    <!-- Precio basado en la cantidad -->
+                    <h5 class="mt-3">Precio: ${{ precioTotal }}</h5>
+
+                    <button class="btn btn-primary mt-3" @click="agregarAlCarrito">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-center text-white py-3">
+        <span>AnimeHub - 2024</span>
+    </footer>
+
+    <script src="js/vue3.js"></script>
+    <script src="js/funcion.js"></script>
+    <script src="js/axios.min.js"></script>
+</body>
+</html>
+
